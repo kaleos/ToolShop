@@ -2,9 +2,11 @@ const { defineConfig, devices } = require('@playwright/test');
 
 module.exports = defineConfig({
   baseURL: 'https://practicesoftwaretesting.com/',
+  baseURLRegistration: 'https://practicesoftwaretesting.com/auth/register',
   testDir: './tests',
   timeout: 30000,
-  workers: 5,
+  workers: 6,
+  //retries: 5,
   fullyParallel: true,
   reporter: 'html',
   use: {
@@ -15,40 +17,51 @@ module.exports = defineConfig({
 
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      name: 'safari',
+      use: {
+          browserName: 'webkit',
+          headless: false,
+          viewport: { width: 1280, height: 720 },
+          screenshot: 'off', // I have manual screenshot in testLogic
+          video: 'retain-on-failure', // Save videos for failed tests
+          trace: 'on-first-retry', // Capture trace for failed tests on first retry
+        }
     },
-
+    {
+      name: 'chrome',
+      use: {
+          browserName: 'chromium',
+          headless: false,
+          viewport: { width: 1280, height: 720 },
+          screenshot: 'off', // I have manual screenshot in testLogic
+          video: 'retain-on-failure', // Save videos for failed tests
+          trace: 'on-first-retry', // Capture trace for failed tests on first retry
+          //...devices['Galaxy S9+'],
+          //...devices['iPhone 13']
+        }
+    },
+    {
+      name: 'edge',
+      use: {
+          browserName: 'chromium',
+          channel: 'msedge',
+          headless: false,
+          viewport: { width: 1280, height: 720 },
+          screenshot: 'off', // I have manual screenshot in testLogic
+          video: 'retain-on-failure', // Save videos for failed tests
+          trace: 'on-first-retry', // Capture trace for failed tests on first retry
+        }
+    },
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      use: {
+          browserName: 'firefox',
+          headless: false,
+          viewport: { width: 1280, height: 720 },
+          screenshot: 'off', // I have manual screenshot in testLogic
+          video: 'retain-on-failure', // Save videos for failed tests
+          trace: 'on-first-retry', // Capture trace for failed tests on first retry
+        }
     },
-
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
-
-    /* Test against mobile viewports. */
-    {
-      name: 'Mobile Chrome',
-      use: { ...devices['Pixel 5'] },
-    },
-    {
-      name: 'Mobile Safari',
-      use: { ...devices['iPhone 12'] },
-    },
-
-    /* Test against branded browsers. */
-    {
-      name: 'Microsoft Edge',
-      use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    },
-    {
-      name: 'Google Chrome',
-      use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-    },
-  ],
-
+],
 });
-

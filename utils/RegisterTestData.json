@@ -1,0 +1,16 @@
+[
+  {
+  "firstName" : "",
+  "lastName" : "",
+  "dateOfBirth" : "",
+  "address" : "",
+  "postalCode" : "",
+  "city" : "",
+  "state" : "",
+  "country" : "",
+  "phone" : "",
+  "email" : "",
+  "password" : ""
+  }
+
+]
