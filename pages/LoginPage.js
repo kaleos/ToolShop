@@ -50,6 +50,10 @@ class LoginPage {
     await this.page.click(this.forgotPasswordLink);
   }
 
+  async forgotPasswordPageVisible() {
+    return await this.page.isVisible(this.forgotPasswordPage);
+  }
+
   async setNewPasswordButtonVisible() {
     return await this.page.isVisible(this.setNewPasswordButton);
   }
