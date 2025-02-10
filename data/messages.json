@@ -1,0 +1,6 @@
+
+{
+  "invalidEmailPassword": "Invalid email or password",
+  "emptyEmail": "Email is required",
+  "emptyPassword": "Password is required"
+}

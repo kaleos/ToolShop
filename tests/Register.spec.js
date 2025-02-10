@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 const { RegisterPage } = require('../pages/RegisterPage');
 const { generateRandomUserData } = require('../utils/randomDataGenerator');
 
-test('should register a new user', async ({ page }) => {
+test('Verify a new user can be registered', async ({ page }) => {
   const registerPage = new RegisterPage(page);
   const userData = generateRandomUserData();
 

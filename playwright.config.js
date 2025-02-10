@@ -2,7 +2,6 @@ const { defineConfig, devices } = require('@playwright/test');
 
 module.exports = defineConfig({
   baseURL: 'https://practicesoftwaretesting.com/',
-  baseURLRegistration: 'https://practicesoftwaretesting.com/auth/register',
   testDir: './tests',
   timeout: 30000,
   workers: 6,
