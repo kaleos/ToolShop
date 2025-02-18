@@ -1,4 +1,4 @@
-const base = require('@playwright/test');
+const base = require('@playwright/test')
 
 exports.credentials = base.test.extend({
   validCredentials: {
@@ -13,4 +13,4 @@ exports.credentials = base.test.extend({
     email: "",
     password: "",
   },
-});
+})

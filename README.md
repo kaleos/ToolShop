@@ -39,6 +39,10 @@ npx playwright test <testname>.spec.js --debug
 npx playwright test --ui
 ```
 
+### Run tests with specific tags
+npx playwright test --grep "@tagname"
+```
+
 ### CI/CD Pipeline Execution:
 - UI tests are triggered automatically in GitHub Actions CI/CD whenever a PUSH to main occurs.
 
