@@ -8,14 +8,17 @@ class LoginPage {
     this.email = '//input[@id="email"]',
     this.password = '//input[@id="password"]',
     this.loginButton = '//input[@value="Login"]',
-    this.invalidLoginMessage = '//div[contains(text(),"Invalid email or password")]',
-    this.emptyEmailMessage = '//div[contains(text(),"Email is required")]',
-    this.emptyPasswordMessage = '//div[contains(text(),"Password is required")]',
     this.hideShowPassword = '//button[@class="btn btn-outline-secondary"]//fa-icon[@class="ng-fa-icon"]',
     this.forgotPasswordLink = '//a[contains(text(),"Forgot your Password?")]',
     this.forgotPasswordPage = '//h3[contains(text(),"Forgot Password")]',
     this.setNewPasswordButton = '//input[@value="Set New Password"]',
 
+    //#region Required field message locators
+    this.invalidLoginMessage = '//div[contains(text(),"Invalid email or password")]',
+    this.emptyEmailMessage = '//div[contains(text(),"Email is required")]',
+    this.emptyPasswordMessage = '//div[contains(text(),"Password is required")]',
+    //#endregion
+    
     //#region Label locators
     this.labelEmailAddress = '//*[text()="Email address *"]',
     this.labelPassword = '//*[text()="Password *"]'

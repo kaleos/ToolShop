@@ -1,17 +1,26 @@
-
 {
-  "invalidEmailPassword": "Invalid email or password",
-  "emptyEmail": "Email is required",
-  "emptyPassword": "Password is required",
-  "firstName" : "First name is required",
-  "lastName" : "fields.last-name.required",
-  "dateOfBirth" : "Date of Birth is required",
-  "street" : "Street is required ",
-  "postalCode" : "Postcode is required",
-  "city" : "City is required",
-  "state" : "State is required",
-  "country" : "Country is required",
-  "phone" : "Phone is required.",
-  "emailAddress" : "Email is required",
-  "password" : ["Password is required",  "Password must be minimal 6 characters long.", "Password can not include invalid characters."]
+  "login": {
+    "invalidEmailPassword": "Invalid email or password",
+    "emptyEmail": "Email is required",
+    "emptyPassword": "Password is required"
+  },
+
+  "register": {
+    "firstName" : "First name is required",
+    "lastName" : "fields.last-name.required",
+    "dateOfBirth" : "Date of Birth is required",
+    "street" : "Street is required ",
+    "postalCode" : "Postcode is required",
+    "city" : "City is required",
+    "state" : "State is required",
+    "country" : "Country is required",
+    "phone" : "Phone is required.",
+    "emailAddress" : "Email is required",
+    "password" : ["Password is required",  "Password must be minimal 6 characters long.", "Password can not include invalid characters."]
+  },
+
+  "home": {
+    "noProductsFound": "There are no products found.",
+    "outOfStock": "Out of stock"
+  }
 }

@@ -4,7 +4,7 @@
 
 ### Overview
 
-This repository features an automation portfolio that highlights E2E tests for a web application, all implemented using Playwright with JavaScript.
+This repository features E2E tests for a web application, all implemented using Playwright with JavaScript.
 
 Comprehensive Tests are triggered automatically in GitHub Actions CI/CD whenever a PUSH to main occurs.
 

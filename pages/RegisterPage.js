@@ -95,19 +95,19 @@ class RegisterPage {
   }
 
   async requiredFieldMessagesVisible() {
-    await expect(this.page.locator(this.messageFirstName)).toHaveText(messages.firstName)
-    await expect(this.page.locator(this.messageLastName)).toHaveText(messages.lastName)
-    await expect(this.page.locator(this.messageDOB)).toHaveText(messages.dateOfBirth)
-    await expect(this.page.locator(this.messageStreet)).toHaveText(messages.street)
-    await expect(this.page.locator(this.messagePostalCode)).toHaveText(messages.postalCode)
-    await expect(this.page.locator(this.messageCity)).toHaveText(messages.city)
-    await expect(this.page.locator(this.messageState)).toHaveText(messages.state)
-    await expect(this.page.locator(this.messageCountry)).toHaveText(messages.country)
-    await expect(this.page.locator(this.messagePhone)).toHaveText(messages.phone)
-    await expect(this.page.locator(this.messageEmailAddress)).toHaveText(messages.emailAddress)
-    await expect(this.page.locator(this.messageOnePassword)).toHaveText(messages.password[0])
-    await expect(this.page.locator(this.messageTwoPassword)).toHaveText(messages.password[1])
-    await expect(this.page.locator(this.messageThreePassword)).toHaveText(messages.password[2])
+    await expect(this.page.locator(this.messageFirstName)).toHaveText(messages.register.firstName)
+    await expect(this.page.locator(this.messageLastName)).toHaveText(messages.register.lastName)
+    await expect(this.page.locator(this.messageDOB)).toHaveText(messages.register.dateOfBirth)
+    await expect(this.page.locator(this.messageStreet)).toHaveText(messages.register.street)
+    await expect(this.page.locator(this.messagePostalCode)).toHaveText(messages.register.postalCode)
+    await expect(this.page.locator(this.messageCity)).toHaveText(messages.register.city)
+    await expect(this.page.locator(this.messageState)).toHaveText(messages.register.state)
+    await expect(this.page.locator(this.messageCountry)).toHaveText(messages.register.country)
+    await expect(this.page.locator(this.messagePhone)).toHaveText(messages.register.phone)
+    await expect(this.page.locator(this.messageEmailAddress)).toHaveText(messages.register.emailAddress)
+    await expect(this.page.locator(this.messageOnePassword)).toHaveText(messages.register.password[0])
+    await expect(this.page.locator(this.messageTwoPassword)).toHaveText(messages.register.password[1])
+    await expect(this.page.locator(this.messageThreePassword)).toHaveText(messages.register.password[2])
   }
 
   async fieldLabelsDisplayed(data) {

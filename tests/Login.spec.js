@@ -21,15 +21,15 @@ credentials('@Functional Verify a user cannot login with invalid credentials', a
   await loginPage.clickSignInBtn()
   await loginPage.login(invalidCredentials.email, invalidCredentials.password)
   const errorMessage = await loginPage.getInvalidLoginMessage()
-  expect(errorMessage).toBe(messages.invalidEmailPassword)
+  expect(errorMessage).toBe(messages.login.invalidEmailPassword)
 })
 
 credentials('@Functional Verify a user cannot login with empty credentials', async ({ emptyCredentials }) => {
   await loginPage.clickSignInBtn()
   await loginPage.login(emptyCredentials.email, emptyCredentials.password)
   const requiredMessage = await loginPage.getRequiredFields()
-  expect(requiredMessage.email).toBe(messages.emptyEmail)
-  expect(requiredMessage.password).toBe(messages.emptyPassword)
+  expect(requiredMessage.email).toBe(messages.login.emptyEmail)
+  expect(requiredMessage.password).toBe(messages.login.emptyPassword)
 })
 
 credentials('@Functional Verify the hide/show toggle password is working', async ({ validCredentials }) => {
