@@ -55,5 +55,7 @@ function generateRandomMessage() {
   }
 }
 
-module.exports = { generateRandomUserData }
-module.exports = { generateRandomMessage }
+module.exports = {
+  generateRandomUserData,
+  generateRandomMessage
+}
