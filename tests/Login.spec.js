@@ -63,7 +63,7 @@ test('@Functional Verify the Set New Password button is displayed when clicking 
 })
 
 test('@UI Verify all correct labels are displayed for the input fields', async () => {
-  await loginPage.clickSignInBtn()
+  //await loginPage.clickSignInBtn()
   expect(await loginPage.fieldLabelsDisplayed('Email address *')).toBe(true, 'Email address * should be displayed')
   expect(await loginPage.fieldLabelsDisplayed('Password *')).toBe(true, 'Password * should be displayed')
 })

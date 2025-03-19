@@ -1,4 +1,4 @@
-const faker = require('faker') // Ensure faker is installed using npm or yarn
+const faker = require('faker')
 
 // Helper function to generate a secure password meeting the criteria
 function generateSecurePassword(length = 8) {
@@ -46,4 +46,14 @@ function generateRandomUserData() {
   }
 }
 
+function generateRandomMessage() {
+  return {
+    firstName: faker.name.firstName(),
+    lastName: faker.name.lastName(),
+    email: faker.internet.email(),
+    message: faker.lorem.paragraphs(1)
+  }
+}
+
 module.exports = { generateRandomUserData }
+module.exports = { generateRandomMessage }

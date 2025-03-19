@@ -1,63 +1,63 @@
-const { expect } = require('@playwright/test')
+const { expect } = require ('@playwright/test')
 
 class HomePage {
   constructor(page) {
     this.page = page
 
     //#region sidebar header locators
-    this.headerSort = '//h4[contains(text(),"Sort")]',
-    this.headerPriceRange = '//h4[contains(text(),"Price Range")]',
-    this.headerSearch = '//h4[contains(text(),"Search")]',
-    this.headerFilters = '//h4[contains(text(),"Filters")]',
-    this.headerByCategory = '//h4[contains(text(),"By category:")]',
+    this.headerSort = '//h4[contains(text(),"Sort")]'
+    this.headerPriceRange = '//h4[contains(text(),"Price Range")]'
+    this.headerSearch = '//h4[contains(text(),"Search")]'
+    this.headerFilters = '//h4[contains(text(),"Filters")]'
+    this.headerByCategory = '//h4[contains(text(),"By category:")]'
     this.headerByBrand = '//h4[contains(text(),"By brand:")]'
     //#endregion
 
     //#region Sidebar filter options locators
-    this.filterHandTools = '//label[contains(text(),"Hand Tools")]',
-    this.filterHammer = '//label[contains(text(),"Hammer")]',
-    this.filterHandSaw = '//label[contains(text(),"Hand Saw")]',
-    this.filterWrench = '//label[contains(text(),"Wrench")]',
-    this.filterScrewdriver = '//label[contains(text(),"Screwdriver")]',
-    this.filterPliers = '//label[contains(text(),"Pliers")]',
-    this.filterChisels = '//label[contains(text(),"Chisels")]',
-    this.filterMeasures = '//label[contains(text(),"Measures")]',
-    this.filterPowerTools = '//label[contains(text(),"Power Tools")]',
-    this.filterGrinder = '//label[contains(text(),"Grinder")]',
-    this.filterSander = '//label[contains(text(),"Sander")]',
-    this.filterSaw = '//label[normalize-space()="Hand Saw"]',
-    this.filterDrill = '//label[contains(text(),"Drill")]',
-    this.filterOther = '//label[contains(text(),"Other")]',
-    this.filterToolBelts = '//label[contains(text(),"Tool Belts")]',
-    this.filterStorageSolutions = '//label[contains(text(),"Storage Solutions")]',
-    this.filterWorkbench = '//label[contains(text(),"Workbench")]',
-    this.filterSafetyGear = '//label[contains(text(),"Safety Gear")]',
-    this.filterFasteners = '//label[contains(text(),"Fasteners")]',
-    this.filterForgeFlexTools = '//label[contains(text(),"ForgeFlex Tools")]',
+    this.filterHandTools = '//label[contains(text(),"Hand Tools")]'
+    this.filterHammer = '//label[contains(text(),"Hammer")]'
+    this.filterHandSaw = '//label[contains(text(),"Hand Saw")]'
+    this.filterWrench = '//label[contains(text(),"Wrench")]'
+    this.filterScrewdriver = '//label[contains(text(),"Screwdriver")]'
+    this.filterPliers = '//label[contains(text(),"Pliers")]'
+    this.filterChisels = '//label[contains(text(),"Chisels")]'
+    this.filterMeasures = '//label[contains(text(),"Measures")]'
+    this.filterPowerTools = '//label[contains(text(),"Power Tools")]'
+    this.filterGrinder = '//label[contains(text(),"Grinder")]'
+    this.filterSander = '//label[contains(text(),"Sander")]'
+    this.filterSaw = '//label[normalize-space()="Hand Saw"]'
+    this.filterDrill = '//label[contains(text(),"Drill")]'
+    this.filterOther = '//label[contains(text(),"Other")]'
+    this.filterToolBelts = '//label[contains(text(),"Tool Belts")]'
+    this.filterStorageSolutions = '//label[contains(text(),"Storage Solutions")]'
+    this.filterWorkbench = '//label[contains(text(),"Workbench")]'
+    this.filterSafetyGear = '//label[contains(text(),"Safety Gear")]'
+    this.filterFasteners = '//label[contains(text(),"Fasteners")]'
+    this.filterForgeFlexTools = '//label[contains(text(),"ForgeFlex Tools")]'
     this.filterMightyCraftHardware = '//label[contains(text(),"MightyCraft Hardware")]'
     //#endregion
 
     //#region other locators
-    this.sortFilter = '//select[@aria-label="sort"]',
-    this.leftHandle = '//span[@aria-label="ngx-slider"]',
-    this.rightHandle = '//span[@aria-label="ngx-slider-max"]',
-    this.searchField = '//input[@id="search-query"]',
-    this.searchCaption = '//h3[@data-test="search-caption"]',
-    this.searchButton = '//button[contains(text(),"Search")]',
-    this.xButton = '//button[contains(text(),"X")]',
-    this.grinderCheckbox = '//label[contains(text(),"Grinder")]',
-    this.nextPage = '//a[@aria-label="Next"]',
-    this.previousPage = '//a[@aria-label="Previous"]',
-    this.pagination = '//ul[@class="pagination"]',
-    this.banner = '//img[@alt="Banner"]',
-    this.toolShopLogo = '//a[contains(@title, "Practice Software Testing - Toolshop")]',
-    this.mainMenu = '//ul[@aria-label="Main menu"]',
-    this.categories = '//*[text()=" Categories "]',
+    this.sortFilter = '//select[@aria-label="sort"]'
+    this.leftHandle = '//span[@aria-label="ngx-slider"]'
+    this.rightHandle = '//span[@aria-label="ngx-slider-max"]'
+    this.searchField = '//input[@id="search-query"]'
+    this.searchCaption = '//h3[@data-test="search-caption"]'
+    this.searchButton = '//button[contains(text(),"Search")]'
+    this.xButton = '//button[contains(text(),"X")]'
+    this.grinderCheckbox = '//label[contains(text(),"Grinder")]'
+    this.nextPage = '//a[@aria-label="Next"]'
+    this.previousPage = '//a[@aria-label="Previous"]'
+    this.pagination = '//ul[@class="pagination"]'
+    this.banner = '//img[@alt="Banner"]'
+    this.toolShopLogo = '//a[contains(@title, "Practice Software Testing - Toolshop")]'
+    this.mainMenu = '//ul[@aria-label="Main menu"]'
+    this.categories = '//*[text()=" Categories "]'
     this.languageBtn = '//button[@id="language"]'
     //#endregion
 
     //#region Message locators
-    this.messageNoProductsFound = '//*[text()="There are no products found."]',
+    this.messageNoProductsFound = '//*[text()="There are no products found."]'
     this.messageOutOfStock = '//*[text()="Out of stock"]'
     //#endregion
 

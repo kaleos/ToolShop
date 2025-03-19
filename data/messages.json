@@ -22,5 +22,14 @@
   "home": {
     "noProductsFound": "There are no products found.",
     "outOfStock": "Out of stock"
+  },
+
+  "contact": {
+    "firstName": "First name is required",
+    "lastName": "Last name is required",
+    "emailAddress": "Email is required",
+    "subject": "Subject is required",
+    "message": "Message is required",
+    "successMessage": " Thanks for your message! We will contact you shortly. "
   }
 }

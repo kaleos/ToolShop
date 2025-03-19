@@ -1,7 +1,7 @@
-const { test, expect } = require('@playwright/test')
-const { baseURL } = require('../playwright.config')
-const { HomePage } = require('../pages/HomePage')
-const messages = require('../data/messages.json')
+const { test, expect } = require ('@playwright/test')
+const { baseURL } = require ('../playwright.config')
+const { HomePage } = require ('../pages/HomePage')
+const messages = require ('../data/messages.json')
 
 let goToPage
 let homePage
@@ -9,7 +9,7 @@ let homePage
 test.beforeEach(async ({ page }) => { 
   goToPage = await page.goto(baseURL)
   homePage = new HomePage(page)
-  //await page.waitForLoadState('networkidle')
+  await page.waitForLoadState('networkidle')
 })
 
 test('@UI Verify the Toolshop logo is displayed on top', async () => {
@@ -40,28 +40,28 @@ test('@UI Verify all the correct filter options are displayed in the sidebar', a
 test('@UI Verify the correct options are displayed in the Sort dropdown', async () => {
   const options = ['Price (Low - High)', 'Price (High - Low)', 'Name (A - Z)', 'Name (Z - A)']
   for (const option of options) {
-    expect(await homePage.sortOptionsDisplayed()).toBe(true);
+    expect(await homePage.sortOptionsDisplayed(option)).toBe(true);
   }
 })
 
 test('@UI Verify the correct language options are displayed in its dropdown', async () => {
   const options = ['DE', 'EN', 'ES', 'FR', 'NL', 'TR']
   for (const option of options) {
-    expect(await homePage.languageBtnVisible()).toBe(true);
+    expect(await homePage.languageBtnVisible(option)).toBe(true);
   }
 })
 
 test('@UI Verify all correct menu items are displayed in the upper right corner', async () => {
   const options = ['Home', 'Categories', 'Contact', 'Sign in']
   for (const option of options) {
-    expect(await homePage.mainMenuItemsVisible()).toBe(true);
+    expect(await homePage.mainMenuItemsVisible(option)).toBe(true);
   }
 })
 
 test('@UI Verify all the correct options are available under Categories', async () => {
   const options = ['Hand Tools', 'Power Tools', 'Other', 'Special Tools', 'Rentals']
   for (const option of options) {
-    expect(await homePage.categoryOptionsVisible()).toBe(true);
+    expect(await homePage.categoryOptionsVisible(option)).toBe(true);
   }
 })
 

@@ -5,51 +5,51 @@ class RegisterPage {
   constructor(page) {
     this.page = page
     //#region Field locators
-    this.customerRegistrationHeader = '//*[text()="Customer registration"]',
-    this.firstName = "//input[@id='first_name']",
-    this.lastName = "//input[@id='last_name']",
-    this.dateOfBirth = '//input[@id="dob"]',
-    this.street = '//input[@id="street"]',
-    this.postalCode = '//input[@id="postal_code"]',
-    this.city = '//input[@id="city"]',
-    this.state = '//input[@id="state"]',
+    this.customerRegistrationHeader = '//*[text()="Customer registration"]'
+    this.firstName = "//input[@id='first_name']"
+    this.lastName = "//input[@id='last_name']"
+    this.dateOfBirth = '//input[@id="dob"]'
+    this.street = '//input[@id="street"]'
+    this.postalCode = '//input[@id="postal_code"]'
+    this.city = '//input[@id="city"]'
+    this.state = '//input[@id="state"]'
     this.country = '//select[@id="country"]'
-    this.phone = '//input[@id="phone"]',
-    this.email = '//input[@id="email"]',
-    this.password = '//input[@id="password"]',
-    this.hideShowPassword = '//button[@class="btn btn-outline-secondary"]//fa-icon[@class="ng-fa-icon"]',
-    this.registerButton = '//button[contains(text(),"Register")]', 
+    this.phone = '//input[@id="phone"]'
+    this.email = '//input[@id="email"]'
+    this.password = '//input[@id="password"]'
+    this.hideShowPassword = '//button[@class="btn btn-outline-secondary"]//fa-icon[@class="ng-fa-icon"]'
+    this.registerButton = '//button[contains(text(),"Register")]'
     //#endregion
 
     //#region Required field message locators
-    this.messageFirstName = '//*[text()=" First name is required "]',
-    this.messageLastName = '//*[text()=" fields.last-name.required "]',
-    this.messageDOB = '//*[text()=" Date of Birth is required "]',
-    this.messageStreet = '//*[text()=" Street is required "]',
-    this.messagePostalCode = '//*[text()=" Postcode is required "]',
-    this.messageCity = '//*[text()=" City is required "]',
-    this.messageState = '//*[text()=" State is required "]',
-    this.messageCountry = '//*[text()=" Country is required "]',
-    this.messagePhone = '//*[text()=" Phone is required. "]',
-    this.messageEmailAddress = '//*[text()=" Email is required "]',
-    this.messageOnePassword = '//*[text()=" Password is required "]',
-    this.messageTwoPassword = '//*[text()=" Password must be minimal 6 characters long. "]',
-    this.messageThreePassword = '//*[text()=" Password can not include invalid characters. "]',
+    this.messageFirstName = '//*[text()=" First name is required "]'
+    this.messageLastName = '//*[text()=" fields.last-name.required "]'
+    this.messageDOB = '//*[text()=" Date of Birth is required "]'
+    this.messageStreet = '//*[text()=" Street is required "]'
+    this.messagePostalCode = '//*[text()=" Postcode is required "]'
+    this.messageCity = '//*[text()=" City is required "]'
+    this.messageState = '//*[text()=" State is required "]'
+    this.messageCountry = '//*[text()=" Country is required "]'
+    this.messagePhone = '//*[text()=" Phone is required. "]'
+    this.messageEmailAddress = '//*[text()=" Email is required "]'
+    this.messageOnePassword = '//*[text()=" Password is required "]'
+    this.messageTwoPassword = '//*[text()=" Password must be minimal 6 characters long. "]'
+    this.messageThreePassword = '//*[text()=" Password can not include invalid characters. "]'
     //#endregion
 
     //#region Label locators
-    this.labelFirstName = '//*[text()="First name"]',
-    this.labelLastName = '//*[text()="Last name"]',
-    this.labelDOB = '//*[text()="Date of Birth *"]',
-    this.labelStreet = '//*[text()="Street"]',
-    this.labelPostalCode = '//*[text()="Postal code"]',
-    this.labelCity = '//*[text()="City"]',
-    this.labelState = '//*[text()="State"]',
-    this.labelCountry = '//*[text()="Country"]',
-    this.labelPhone = '//*[text()="Phone"]',
-    this.labelEmailAddress = '//*[text()="Email address"]',
-    this.labelPassword = '//*[text()="Password"]',
-    this.labelPasswordStrength = '//*[text()=" Password strength: "]',
+    this.labelFirstName = '//*[text()="First name"]'
+    this.labelLastName = '//*[text()="Last name"]'
+    this.labelDOB = '//*[text()="Date of Birth *"]'
+    this.labelStreet = '//*[text()="Street"]'
+    this.labelPostalCode = '//*[text()="Postal code"]'
+    this.labelCity = '//*[text()="City"]'
+    this.labelState = '//*[text()="State"]'
+    this.labelCountry = '//*[text()="Country"]'
+    this.labelPhone = '//*[text()="Phone"]'
+    this.labelEmailAddress = '//*[text()="Email address"]'
+    this.labelPassword = '//*[text()="Password"]'
+    this.labelPasswordStrength = '//*[text()=" Password strength: "]'
     this.labelpasswordStrengthOptions = '//div[@class="strength-labels"]'
     //#endregion
   }
@@ -153,8 +153,7 @@ class RegisterPage {
             isVisible = false
     }
     return isVisible
-}
-
+  }
 }
 
 module.exports = { RegisterPage }
