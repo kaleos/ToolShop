@@ -9,17 +9,19 @@ class Categories {
   constructor(page) {
     this.page = page
 
-    //#region Categories locators
-    this.categoriesBtn = '//a[@data-test="nav-categories"]'
-    //#endregion
+    this.locators = {
+      //#region Categories locators
+      categoriesBtn: '//a[@data-test="nav-categories"]'
+      //#endregion
   }
+}
 
   async categoriesOptionsVisible() {
-    return await this.page.isVisible(this.categoriesBtn)
+    return await this.page.isVisible(this.locators.categoriesBtn)
   }
 
   async categoriesOptionsSelect(option) {
-    await this.page.click(this.categoriesBtn)
+    await this.page.click(this.locators.categoriesBtn)
     await this.page.click(`//a[text()='${option}']`)
   }
 

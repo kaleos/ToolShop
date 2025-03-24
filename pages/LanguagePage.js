@@ -4,11 +4,13 @@ class Language {
   constructor(page) {
     this.page = page
 
-    this.languageBtn = '//button[@id="language"]'
+    this.locators = {
+      languageBtn: '//button[@id="language"]'
   }
+}
 
   async languageOptionsVisible() {
-    return await this.page.isVisible(this.languageBtn)
+    return await this.page.isVisible(this.locators.languageBtn)
   }
 }
 
