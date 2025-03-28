@@ -1,18 +1,17 @@
-const { test, expect } = require ('@playwright/test')
-const { baseURL } = require ('../playwright.config')
-const { Navigation } = require ('../pages/NavigationPage')
+const { loginFixtures } = require('../fixtures/loginFixtures')
+const { expect } = require('@playwright/test')
+const { Navigation } = require('../pages/NavigationPage')
 
-let goToPage
-let navigation
+const test = loginFixtures
 
-test.beforeEach(async ({ page }) => {
-  goToPage = await page.goto(baseURL)
-  navigation = new Navigation(page)
-})
+test('@UI Verify the user is able to navigate through various pages and verify URLs', async ({ loginPage, validCredentials, page }) => {
+  await loginPage.clickSignInBtn();
+  await loginPage.login(validCredentials.email, validCredentials.password)
 
-test('@UI Verify the user is able to navigate through some of the tabs on top', async () => {
-  const tabs = ['Contact', 'Sign in', 'Home']
+  const navigation = new Navigation(page)
+  const tabs = ['My account', 'My favorites', 'My profile', 'My invoices', 'My messages', 'Contact', 'Home']
   for (const tab of tabs) {
-    expect(await navigation.tabNavigation(tab)).toBe(true)
+    const expectedURL = await navigation.tabNavigation(tab)
+    expect(page.url()).toMatch(new RegExp(`^${expectedURL.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\$&')}/?$`))
   }
 })
