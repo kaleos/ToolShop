@@ -1,17 +1,19 @@
 const { expect } = require('@playwright/test')
 const { contactURL, myAccountURL, myFavoritesURL, myProfileURL, myInvoicesURL, myMessagesURL, baseURL } = require('../playwright.config')
 
-class Navigation {
+class NavigationPage {
   constructor(page) {
     this.page = page;
     // Assign URLs to instance config for use in tabNavigation
     this.config = { contactURL, myAccountURL, myFavoritesURL, myProfileURL, myInvoicesURL, myMessagesURL, baseURL }
     this.locators = {   
+
       //#region Navigation locators
       contactBtn: '//a[contains(text(),"Contact")]',
       homeBtn: '//a[contains(text(),"Home")]',
+      //#endregion
       
-      // Dropdown locators for "My Account" options
+      //#region Account dropdown locators
       menuBtn: '//a[@id="menu"]',
       myAccountOption: '//a[contains(text(),"My account")]',
       myFavoritesOption: '//a[contains(text(),"My favorites")]',
@@ -19,6 +21,12 @@ class Navigation {
       myInvoicesOption: '//a[contains(text(),"My invoices")]',
       myMessagesOption: '//a[contains(text(),"My messages")]',
       //#endregion
+
+      //#region Left container locators
+      favorites: '//a[@routerlink="favorites"]',
+      profile: '//a[@routerlink="profile"]',
+      invoices: '//a[@routerlink="invoices"]',
+      messages: '//a[@routerlink="messages"]'
     }
   }
 
@@ -66,6 +74,27 @@ class Navigation {
     // Return the expected URL for further verification
     return expectedURL
   }
+
+  async containerNavigationVisible(section) {
+    let isVisible
+    switch(section) {
+      case 'Favorites':
+        isVisible = await this.page.isVisible(this.locators.favorites)
+        break
+      case 'Profile':
+        isVisible = await this.page.isVisible(this.locators.profile)
+        break
+      case 'Invoices':
+        isVisible = await this.page.isVisible(this.locators.invoices)
+        break
+      case 'Messages':
+        isVisible = await this.page.isVisible(this.locators.messages)
+        break
+      default:
+        isVisible = false
+    }
+    return isVisible
+  }
 }
 
-module.exports = { Navigation }
+module.exports = { NavigationPage }
