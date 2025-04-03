@@ -24,7 +24,7 @@ test('@Functional Verify an item can be added to the cart successfully', async (
 
 test('@Functional Verify an item can be added to the favorites successfully', async () => {
   await itemSelectionPage.clickHomeBtn()
-  await itemSelectionPage.addCombinationPliers()
+  await itemSelectionPage.addBoltCutters()
   await itemSelectionPage.clickAddToFavorites()
   expect(await itemSelectionPage.favoriteAddedPopup()).toBe(' Product added to your favorites list. ', 'The favorites added popup should be displayed')
 })

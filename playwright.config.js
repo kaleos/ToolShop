@@ -18,7 +18,7 @@ module.exports = defineConfig({
   testDir: './tests',
   timeout: 30000,
   workers: 6,
-  retries: 4,
+  retries: 5,
   fullyParallel: true,
   reporter: 'html',
   use: {

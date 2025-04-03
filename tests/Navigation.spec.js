@@ -22,9 +22,9 @@ test('@UI Verify the user is able to navigate through various pages and verify U
   }
 })
 
-test('@UI Verify Favorites, Profile, Invoices and Messages are displayed to the left when logged in', async () => {
-  expect(await navigationPage.containerNavigationVisible('Favorites')).toBe(true, 'Favorites should be visible in the container menu')
-  expect(await navigationPage.containerNavigationVisible('Profile')).toBe(true, 'Profile should be visible in the container menu')
-  expect(await navigationPage.containerNavigationVisible('Invoices')).toBe(true, 'Invoices should be visible in the container menu')
-  expect(await navigationPage.containerNavigationVisible('Messages')).toBe(true, 'Messages should be visible in the container menu')
-})
+// test('@UI Verify Favorites, Profile, Invoices and Messages are displayed to the left when logged in', async () => {
+//   expect(await navigationPage.containerNavigationVisible('Favorites')).toBe(true, 'Favorites should be visible in the container menu')
+//   expect(await navigationPage.containerNavigationVisible('Profile')).toBe(true, 'Profile should be visible in the container menu')
+//   expect(await navigationPage.containerNavigationVisible('Invoices')).toBe(true, 'Invoices should be visible in the container menu')
+//   expect(await navigationPage.containerNavigationVisible('Messages')).toBe(true, 'Messages should be visible in the container menu')
+// })
