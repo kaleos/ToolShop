@@ -2,11 +2,10 @@ const { test, expect } = require ('@playwright/test')
 const { baseURL } = require ('../playwright.config')
 const { Language } = require ('../pages/LanguagePage')
 
-let goToPage
 let language
 
 test.beforeEach(async ({ page }) => { 
-  goToPage = await page.goto(baseURL)
+  await page.goto(baseURL)
   language = new Language(page)
 })
 

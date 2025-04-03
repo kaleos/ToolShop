@@ -3,11 +3,10 @@ const { baseURL } = require ('../playwright.config')
 const { HomePage } = require ('../pages/HomePage')
 const messages = require ('../data/messages.json')
 
-let goToPage
 let homePage
 
 test.beforeEach(async ({ page }) => { 
-  goToPage = await page.goto(baseURL)
+  await page.goto(baseURL)
   homePage = new HomePage(page)
   await page.waitForLoadState('networkidle')
 })

@@ -9,8 +9,8 @@ exports.loginFixtures = base.test.extend({
     await use(loginPage)
   },
   validCredentials: {
-    email: "test@email.com",
-    password: "Doiutnow45()",
+    email: "test4545@email.com",
+    password: "Weksitef489()",
   },
   invalidCredentials: {
     email: "invalid@email.com",

@@ -3,11 +3,10 @@ const { contactURL } = require('../playwright.config')
 const { ContactPage } = require('../pages/ContactPage')
 const { generateRandomMessage } = require('../utils/randomDataGenerator')
 
-let gotToPage
 let contactPage
 
 test.beforeEach(async ({ page }) => { 
-  gotToPage = await page.goto(contactURL)
+  await page.goto(contactURL)
   contactPage = new ContactPage(page)
 });
 

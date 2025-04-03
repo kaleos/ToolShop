@@ -3,11 +3,10 @@ const { RegisterPage } = require('../pages/RegisterPage')
 const { registrationURL } = require('../playwright.config')
 const { generateRandomUserData } = require('../utils/randomDataGenerator')
 
-let goToPage
 let registerPage
 
 test.beforeEach(async ({ page }) => { 
-  goToPage = await page.goto(registrationURL)
+  await page.goto(registrationURL)
   await page.waitForLoadState('networkidle')
   registerPage = new RegisterPage(page)
 })
