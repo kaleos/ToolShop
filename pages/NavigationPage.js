@@ -27,6 +27,7 @@ class NavigationPage {
       profile: '//a[@routerlink="profile"]',
       invoices: '//a[@routerlink="invoices"]',
       messages: '//a[@routerlink="messages"]'
+      //#endregion
     }
   }
 
@@ -75,26 +76,26 @@ class NavigationPage {
     return expectedURL
   }
 
-  // async containerNavigationVisible(section) {
-  //   let isVisible
-  //   switch(section) {
-  //     case 'Favorites':
-  //       isVisible = await this.page.isVisible(this.locators.favorites)
-  //       break
-  //     case 'Profile':
-  //       isVisible = await this.page.isVisible(this.locators.profile)
-  //       break
-  //     case 'Invoices':
-  //       isVisible = await this.page.isVisible(this.locators.invoices)
-  //       break
-  //     case 'Messages':
-  //       isVisible = await this.page.isVisible(this.locators.messages)
-  //       break
-  //     default:
-  //       isVisible = false
-  //   }
-  //   return isVisible
-  // }
+  async containerNavigationVisible(section) {
+    let isVisible
+    switch(section) {
+      case 'Favorites':
+        isVisible = await this.page.isVisible(this.locators.favorites)
+        break
+      case 'Profile':
+        isVisible = await this.page.isVisible(this.locators.profile)
+        break
+      case 'Invoices':
+        isVisible = await this.page.isVisible(this.locators.invoices)
+        break
+      case 'Messages':
+        isVisible = await this.page.isVisible(this.locators.messages)
+        break
+      default:
+        isVisible = false
+    }
+    return isVisible
+  }
 }
 
 module.exports = { NavigationPage }

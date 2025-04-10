@@ -5,6 +5,7 @@ class ItemSelectionPage {
     this.page = page
     
     this.locators = {
+      
       combinationPliers: '//*[text()=" Combination Pliers "]',
       boltCutters: '//*[text()=" Bolt Cutters "]',
       homeBtn: '//a[contains(text(),"Home")]',
