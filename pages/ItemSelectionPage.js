@@ -1,4 +1,5 @@
 const { expect } = require ('@playwright/test')
+const messages = require('../data/messages.json')
 
 class ItemSelectionPage {
   constructor(page) {
@@ -14,7 +15,12 @@ class ItemSelectionPage {
       productAdded: '//div[@aria-label="Product added to shopping cart."]',
       favoritesAdded: '//div[@aria-label="Product added to your favorites list."]',
       increaseQtyBtn: '//button[@id="btn-increase-quantity"]',
-      quantityInput: '//input[@id="quantity-input"]'
+      quantityInput: '//input[@id="quantity-input"]',
+
+      //#region Message locators
+      messageAddedToCart: '//div[@aria-label="Product added to shopping cart."]',
+      messageAddedToFavorites: '//div[@aria-label="Product added to your favorites list."]'
+      //#endregion
     }
   }
 
@@ -36,10 +42,12 @@ class ItemSelectionPage {
 
   async clickAddToCart() {
     await this.page.click(this.locators.addToCartBtn)
+    await expect(this.page.locator(this.locators.messageAddedToCart)).toHaveText(messages.product.addedToCart)
   }
 
   async clickAddToFavorites() {
     await this.page.click(this.locators.addToFavorites)
+    await expect(this.page.locator(this.locators.messageAddedToFavorites)).toHaveText(messages.product.addedToFavorites)
   }
 
   async increaseQuantity() {

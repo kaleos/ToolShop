@@ -19,14 +19,12 @@ test('@Functional Verify an item can be added to the cart successfully', async (
   await itemSelectionPage.clickHomeBtn()
   await itemSelectionPage.addCombinationPliers()
   await itemSelectionPage.clickAddToCart()
-  expect(await itemSelectionPage.productAddedPopup()).toBe(' Product added to shopping cart. ', 'The product added popup should be displayed')
 })
 
 test('@Functional Verify an item can be added to the favorites successfully', async () => {
   await itemSelectionPage.clickHomeBtn()
   await itemSelectionPage.addCombinationPliers()
   await itemSelectionPage.clickAddToFavorites()
-  expect(await itemSelectionPage.favoriteAddedPopup()).toBe(' Product added to your favorites list. ', 'The favorites added popup should be displayed')
 })
 
 test('@Functional Verify increasing the quantity of an item with + is successful', async () => {

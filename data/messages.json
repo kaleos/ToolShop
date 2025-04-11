@@ -31,5 +31,10 @@
     "subject": "Subject is required",
     "message": "Message is required",
     "successMessage": " Thanks for your message! We will contact you shortly. "
+  },
+
+  "product": {
+    "addedToCart": "Product added to shopping cart.",
+    "addedToFavorites": "Product added to your favorites list."
   }
 }
