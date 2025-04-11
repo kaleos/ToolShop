@@ -25,7 +25,6 @@ test('@Functional Verify an item can be added to the favorites successfully', as
   await itemSelectionPage.clickHomeBtn()
   await itemSelectionPage.addCombinationPliers()
   await itemSelectionPage.clickAddToFavorites()
-  ////
 })
 
 test('@Functional Verify increasing the quantity of an item with + is successful', async () => {
