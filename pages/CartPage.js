@@ -20,7 +20,7 @@ class CartPage {
 
       //#region Label locators
       labelCart: '//*[text()="Cart"]',
-      labelSignIn: '(//*[text()="Sign in"])[2]',
+      labelSignIn: '(//*[text()="Sign in"])[1]',
       labelBillingAddress: '(//*[text()="Billing Address"])[1]',
       labelPayment: '(//*[text()="Payment"])[1]',
       //#endregion
