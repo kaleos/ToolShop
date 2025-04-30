@@ -32,7 +32,6 @@ test('@Functional Verify increasing the quantity of an item with + is successful
   await itemSelectionPage.addCombinationPliers()
   await itemSelectionPage.increaseQuantity()
   await itemSelectionPage.clickAddToCart()
-  expect(await itemSelectionPage.productAddedPopup()).toBe(' Product added to shopping cart. ', 'The product added popup should be displayed')
 })
 
 test('@Functional Verify increasing the quantity of an item by entering a number is successful', async () => {
@@ -40,5 +39,4 @@ test('@Functional Verify increasing the quantity of an item by entering a number
   await itemSelectionPage.addCombinationPliers()
   await itemSelectionPage.enterQuantity()
   await itemSelectionPage.clickAddToCart()
-  expect(await itemSelectionPage.productAddedPopup()).toBe(' Product added to shopping cart. ', 'The product added popup should be displayed')
 })

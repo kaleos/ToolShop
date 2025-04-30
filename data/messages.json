@@ -35,6 +35,8 @@
 
   "product": {
     "addedToCart": "Product added to shopping cart.",
-    "addedToFavorites": "Product added to your favorites list."
+    "addedToFavorites": "Product added to your favorites list.",
+    "productDeleted": "Product deleted.",
+    "successfulPayment": "Payment was successful"
   }
 }
