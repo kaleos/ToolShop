@@ -1,16 +1,16 @@
-const { loginFixtures } = require('../fixtures/loginFixtures')
-const { expect } = require('@playwright/test')
-const { baseURL } = require ('../playwright.config')
-const { ItemSelectionPage } = require ('../pages/ItemSelectionPage')
-const { CartPage } = require ('../pages/CartPage')
+import { test, expect } from '@playwright/test'
+import { loginFixtures } from '../fixtures/loginFixtures'
+import config from '../playwright.config'
+import { ItemSelectionPage } from '../pages/ItemSelectionPage'
+import { CartPage } from '../pages/CartPage'
 
-const test = loginFixtures
+const extendedTest = loginFixtures
 
-let itemSelectionPage
-let cartPage
+let itemSelectionPage: ItemSelectionPage
+let cartPage: CartPage
 
-test.beforeEach(async ({ page, loginPage, validCredentials }) => {
-  await page.goto(baseURL)
+extendedTest.beforeEach(async ({ page, loginPage, validCredentials }) => {
+  await page.goto(config.baseURL)
   await loginPage.clickSignInBtn()
   await loginPage.login(validCredentials.email, validCredentials.password)
   itemSelectionPage = new ItemSelectionPage(page)
@@ -18,7 +18,7 @@ test.beforeEach(async ({ page, loginPage, validCredentials }) => {
   await page.waitForLoadState('networkidle')
 })
 
-test('@Functional Verify the quantity of an item can be changed from within the cart', async () => {
+extendedTest('@Functional Verify the quantity of an item can be changed from within the cart', async () => {
   await itemSelectionPage.clickHomeBtn()
   await itemSelectionPage.addCombinationPliers()
   await itemSelectionPage.clickAddToCart()
@@ -26,7 +26,7 @@ test('@Functional Verify the quantity of an item can be changed from within the 
   await cartPage.enterQuantity()
 })
 
-test('@Functional Verify an item can be deleted from within the cart with X', async () => {
+extendedTest('@Functional Verify an item can be deleted from within the cart with X', async () => {
   await itemSelectionPage.clickHomeBtn()
   await itemSelectionPage.addCombinationPliers()
   await itemSelectionPage.clickAddToCart()
@@ -34,7 +34,7 @@ test('@Functional Verify an item can be deleted from within the cart with X', as
   await cartPage.clickXDelete()
 })
 
-test('@UI Verify all 4 correct labels are displayed on top of the page', async () => {
+extendedTest('@UI Verify all 4 correct labels are displayed on top of the page', async () => {
   await itemSelectionPage.clickHomeBtn()
   await itemSelectionPage.addCombinationPliers()
   await itemSelectionPage.clickAddToCart()
@@ -46,7 +46,7 @@ test('@UI Verify all 4 correct labels are displayed on top of the page', async (
   await expect(cartPage.page.locator(cartPage.locators.labelPayment)).toBeVisible()
 })
 
-test('@Functional Verify the user can make a full purchase', async () => {
+extendedTest('@Functional Verify the user can make a full purchase', async () => {
   await itemSelectionPage.clickHomeBtn()
   await itemSelectionPage.addCombinationPliers()
   await itemSelectionPage.clickAddToCart()

@@ -1,18 +1,29 @@
-const { expect } = require('@playwright/test')
-const { contactURL, myAccountURL, myFavoritesURL, myProfileURL, myInvoicesURL, myMessagesURL, baseURL } = require('../playwright.config')
+import { expect, Page } from '@playwright/test'
 
-class NavigationPage {
-  constructor(page) {
-    this.page = page;
-    // Assign URLs to instance config for use in tabNavigation
-    this.config = { contactURL, myAccountURL, myFavoritesURL, myProfileURL, myInvoicesURL, myMessagesURL, baseURL }
-    this.locators = {   
+interface NavigationConfig {
+  contactURL: string
+  myAccountURL: string
+  myFavoritesURL: string
+  myProfileURL: string
+  myInvoicesURL: string
+  myMessagesURL: string
+  baseURL: string
+}
 
+export class NavigationPage {
+  page: Page
+  locators: Record<string, string>
+  config: NavigationConfig
+
+  constructor(page: Page, config: NavigationConfig) {
+    this.page = page
+    this.config = config
+    this.locators = {
       //#region Navigation locators
       contactBtn: '//a[contains(text(),"Contact")]',
       homeBtn: '//a[contains(text(),"Home")]',
       //#endregion
-      
+
       //#region Account dropdown locators
       menuBtn: '//a[@id="menu"]',
       myAccountOption: '//a[contains(text(),"My account")]',
@@ -31,9 +42,10 @@ class NavigationPage {
     }
   }
 
-  async tabNavigation(tab) {
-    let expectedURL
-    switch(tab) {
+  async tabNavigation(tab: string): Promise<string> {
+    let expectedURL: string
+
+    switch (tab) {
       case 'My account':
         await this.page.click(this.locators.menuBtn)
         await this.page.click(this.locators.myAccountOption)
@@ -70,15 +82,18 @@ class NavigationPage {
       default:
         throw new Error(`No locator defined for tab: ${tab}`)
     }
+
     // Use a regex to allow for an optional trailing slash
-    await this.page.waitForURL(new RegExp(`^${expectedURL.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/?$`))
+    await this.page.waitForURL(
+      new RegExp(`^${expectedURL.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/?$`)
+    )
     // Return the expected URL for further verification
     return expectedURL
   }
 
-  async containerNavigationVisible(section) {
-    let isVisible
-    switch(section) {
+  async containerNavigationVisible(section: string): Promise<boolean> {
+    let isVisible: boolean
+    switch (section) {
       case 'Favorites':
         isVisible = await this.page.isVisible(this.locators.favorites)
         break
@@ -97,5 +112,3 @@ class NavigationPage {
     return isVisible
   }
 }
-
-module.exports = { NavigationPage }

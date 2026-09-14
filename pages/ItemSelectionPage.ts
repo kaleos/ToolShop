@@ -1,12 +1,13 @@
-const { expect } = require ('@playwright/test')
-const messages = require('../data/messages.json')
+import { expect, Page } from '@playwright/test'
 
-class ItemSelectionPage {
-  constructor(page) {
+export class ItemSelectionPage {
+  page: Page
+  locators: Record<string, string>
+
+  constructor(page: Page) {
     this.page = page
-    
+
     this.locators = {
-      
       combinationPliers: '//*[text()=" Combination Pliers "]',
       boltCutters: '//*[text()=" Bolt Cutters "]',
       homeBtn: '//a[contains(text(),"Home")]',
@@ -24,43 +25,45 @@ class ItemSelectionPage {
     }
   }
 
-  async enterQuantity() {
+  async enterQuantity(): Promise<void> {
     await this.page.fill(this.locators.quantityInput, '3')
   }
 
-  async addCombinationPliers() {
+  async addCombinationPliers(): Promise<void> {
     await this.page.click(this.locators.combinationPliers)
   }
 
-  async addBoltCutters() {
+  async addBoltCutters(): Promise<void> {
     await this.page.click(this.locators.boltCutters)
   }
 
-  async clickHomeBtn() {
+  async clickHomeBtn(): Promise<void> {
     await this.page.click(this.locators.homeBtn)
   }
 
-  async clickAddToCart() {
+  async clickAddToCart(): Promise<void> {
     await this.page.click(this.locators.addToCartBtn)
-    await expect(this.page.locator(this.locators.messageAddedToCart)).toHaveText(messages.product.addedToCart)
+    await expect(this.page.locator(this.locators.messageAddedToCart)).toHaveText(
+      /Product added to shopping cart/
+    )
   }
 
-  async clickAddToFavorites() {
+  async clickAddToFavorites(): Promise<void> {
     await this.page.click(this.locators.addToFavorites)
-    await expect(this.page.locator(this.locators.messageAddedToFavorites)).toHaveText(messages.product.addedToFavorites)
+    await expect(this.page.locator(this.locators.messageAddedToFavorites)).toHaveText(
+      /Product added to your favorites list/
+    )
   }
 
-  async increaseQuantity() {
+  async increaseQuantity(): Promise<void> {
     await this.page.click(this.locators.increaseQtyBtn)
   }
 
-  async productAddedPopup() {
+  async productAddedPopup(): Promise<string | null> {
     return await this.page.textContent(this.locators.productAdded)
   }
 
-  async favoriteAddedPopup() {
+  async favoriteAddedPopup(): Promise<string | null> {
     return await this.page.textContent(this.locators.favoritesAdded)
   }
 }
-
-module.exports = { ItemSelectionPage }

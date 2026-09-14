@@ -1,15 +1,36 @@
-const faker = require('faker')
+import faker from 'faker'
+
+interface UserData {
+  firstName: string
+  lastName: string
+  dateOfBirth: string
+  street: string
+  postalCode: string
+  city: string
+  state: string
+  country: string
+  phone: string
+  email: string
+  password: string
+}
+
+interface MessageData {
+  firstName: string
+  lastName: string
+  email: string
+  message: string
+}
 
 // Helper function to generate a secure password meeting the criteria
-function generateSecurePassword(length = 8) {
+function generateSecurePassword(length: number = 8): string {
   const upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
   const lower = 'abcdefghijklmnopqrstuvwxyz'
   const digits = '0123456789'
   const specials = '@#$%&()[]{}'
   
   // Ensure at least one char from each requirement
-  const getRandom = (str) => str[Math.floor(Math.random() * str.length)]
-  let passwordChars = [
+  const getRandom = (str: string): string => str[Math.floor(Math.random() * str.length)]
+  let passwordChars: string[] = [
     getRandom(upper),
     getRandom(lower),
     getRandom(digits),
@@ -17,20 +38,20 @@ function generateSecurePassword(length = 8) {
   ]
   
   // Fill remaining length with random characters from allowed groups
-  const allChars = upper + lower + digits + specials;
+  const allChars = upper + lower + digits + specials
   for (let i = passwordChars.length; i < length; i++) {
     passwordChars.push(getRandom(allChars))
   }
   
   // Shuffle the array to randomize the order
   for (let i = passwordChars.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [passwordChars[i], passwordChars[j]] = [passwordChars[j], passwordChars[i]]
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[passwordChars[i], passwordChars[j]] = [passwordChars[j], passwordChars[i]]
   }
   return passwordChars.join('')
 }
 
-function generateRandomUserData() {
+function generateRandomUserData(): UserData {
   return {
     firstName: faker.name.firstName(),
     lastName: faker.name.lastName(),
@@ -40,13 +61,16 @@ function generateRandomUserData() {
     city: faker.address.city(),
     state: faker.address.state(),
     country: faker.address.countryCode(),
-    phone: faker.phone.phoneNumber().replace(/\D/g, '').substring(0, 10), // Modified to yield exactly 10 digits
+    phone: faker.phone
+      .phoneNumber()
+      .replace(/\D/g, '')
+      .substring(0, 10), // Modified to yield exactly 10 digits
     email: faker.internet.email(),
     password: generateSecurePassword(8) // Modified to yield a secure password meeting requirements
   }
 }
 
-function generateRandomMessage() {
+function generateRandomMessage(): MessageData {
   return {
     firstName: faker.name.firstName(),
     lastName: faker.name.lastName(),
@@ -55,7 +79,4 @@ function generateRandomMessage() {
   }
 }
 
-module.exports = {
-  generateRandomUserData,
-  generateRandomMessage
-}
+export { generateRandomUserData, generateRandomMessage, UserData, MessageData }
