@@ -12,7 +12,9 @@ extendedTest.beforeEach(async ({ page, loginPage, validCredentials }) => {
   await loginPage.clickSignInBtn()
   await loginPage.login(validCredentials.email, validCredentials.password)
   itemSelectionPage = new ItemSelectionPage(page)
-  await page.waitForLoadState('networkidle')
+  // 'networkidle' is unreliable against a live third-party site; wait for
+  // the account menu instead, which only renders once login has completed.
+  await page.locator('//*[@id="menu"]').waitFor({ state: 'visible' })
 })
 
 extendedTest('@Functional Verify an item can be added to the cart successfully', async () => {

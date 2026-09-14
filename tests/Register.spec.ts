@@ -7,8 +7,10 @@ let registerPage: RegisterPage
 
 test.beforeEach(async ({ page }: { page: Page }) => {
   await page.goto(config.registrationURL)
-  await page.waitForLoadState('networkidle')
   registerPage = new RegisterPage(page)
+  // 'networkidle' is unreliable against a live third-party site; wait for
+  // the form header instead, which only renders once the page has loaded.
+  await page.locator(registerPage.locators.customerRegistrationHeader).waitFor({ state: 'visible' })
 })
 
 test('@UI Verify an error message is displayed when required fields are not filled in', async () => {
@@ -23,6 +25,7 @@ test('@Functional Verify a new user can be registered', async () => {
     userData.lastName,
     userData.dateOfBirth,
     userData.street,
+    userData.houseNumber,
     userData.postalCode,
     userData.city,
     userData.state,
@@ -31,6 +34,8 @@ test('@Functional Verify a new user can be registered', async () => {
     userData.email,
     userData.password
   )
+  // A successful registration redirects to the login page
+  await registerPage.page.waitForURL(/\/auth\/login/)
 })
 
 test('@UI Verify the header "Customer Registration" is visible', async () => {

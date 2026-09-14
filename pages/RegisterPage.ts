@@ -14,6 +14,7 @@ export class RegisterPage {
       lastName: "//input[@id='last_name']",
       dateOfBirth: '//input[@id="dob"]',
       street: '//input[@id="street"]',
+      houseNumber: '//input[@id="house_number"]',
       postalCode: '//input[@id="postal_code"]',
       city: '//input[@id="city"]',
       state: '//input[@id="state"]',
@@ -27,7 +28,7 @@ export class RegisterPage {
 
       //#region Required field message locators
       messageFirstName: '//*[text()=" First name is required "]',
-      messageLastName: '//*[text()=" fields.last-name.required "]',
+      messageLastName: '//*[normalize-space(text())="Last name is required"]',
       messageDOB: '//*[text()=" Date of Birth is required "]',
       messageStreet: '//*[text()=" Street is required "]',
       messagePostalCode: '//*[text()=" Postcode is required "]',
@@ -80,6 +81,7 @@ export class RegisterPage {
     lastName: string,
     dateOfBirth: string,
     street: string,
+    houseNumber: string,
     postalCode: string,
     city: string,
     state: string,
@@ -92,6 +94,7 @@ export class RegisterPage {
     await this.page.fill(this.locators.lastName, lastName)
     await this.page.fill(this.locators.dateOfBirth, dateOfBirth)
     await this.page.fill(this.locators.street, street)
+    await this.page.fill(this.locators.houseNumber, houseNumber)
     await this.page.fill(this.locators.postalCode, postalCode)
     await this.page.fill(this.locators.city, city)
     await this.page.fill(this.locators.state, state)

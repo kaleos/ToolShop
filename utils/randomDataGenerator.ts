@@ -5,6 +5,7 @@ interface UserData {
   lastName: string
   dateOfBirth: string
   street: string
+  houseNumber: string
   postalCode: string
   city: string
   state: string
@@ -51,12 +52,23 @@ function generateSecurePassword(length: number = 8): string {
   return passwordChars.join('')
 }
 
+function yearsAgo(years: number): Date {
+  const date = new Date()
+  date.setFullYear(date.getFullYear() - years)
+  return date
+}
+
 function generateRandomUserData(): UserData {
   return {
     firstName: faker.name.firstName(),
     lastName: faker.name.lastName(),
-    dateOfBirth: faker.date.past(30, new Date()).toISOString().split('T')[0],
-    street: faker.address.streetAddress(),
+    // The site rejects customers under 18, so pick a DOB 18-70 years ago
+    dateOfBirth: faker.date
+      .between(yearsAgo(70), yearsAgo(18))
+      .toISOString()
+      .split('T')[0],
+    street: faker.address.streetName(),
+    houseNumber: faker.datatype.number({ min: 1, max: 9999 }).toString(),
     postalCode: faker.address.zipCode(),
     city: faker.address.city(),
     state: faker.address.state(),

@@ -25,7 +25,7 @@ export class NavigationPage {
       //#endregion
 
       //#region Account dropdown locators
-      menuBtn: '//a[@id="menu"]',
+      menuBtn: '//*[@id="menu"]',
       myAccountOption: '//a[contains(text(),"My account")]',
       myFavoritesOption: '//a[contains(text(),"My favorites")]',
       myProfileOption: '//a[contains(text(),"My profile")]',

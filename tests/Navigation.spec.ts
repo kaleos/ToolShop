@@ -19,7 +19,9 @@ extendedTest.beforeEach(async ({ page, loginPage, validCredentials }) => {
     myMessagesURL: config.myMessagesURL,
     baseURL: config.baseURL
   })
-  await page.waitForLoadState('networkidle')
+  // 'networkidle' is unreliable against a live third-party site; wait for
+  // the account menu instead, which only renders once login has completed.
+  await page.locator(navigationPage.locators.menuBtn).waitFor({ state: 'visible' })
 })
 
 extendedTest('@UI Verify the user is able to navigate through various pages and verify URLs', async ({ page }) => {

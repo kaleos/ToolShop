@@ -7,7 +7,9 @@ let homePage: HomePage
 test.beforeEach(async ({ page }: { page: Page }) => {
   await page.goto(config.baseURL)
   homePage = new HomePage(page)
-  await page.waitForLoadState('networkidle')
+  // 'networkidle' is unreliable against a live third-party site; wait for
+  // the logo instead, which only renders once the page has fully loaded.
+  await page.locator(homePage.locators.toolShopLogo).waitFor({ state: 'visible' })
 })
 
 test('@UI Verify the Toolshop logo is displayed on top', async () => {
